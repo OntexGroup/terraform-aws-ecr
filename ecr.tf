@@ -27,7 +27,8 @@ resource "aws_iam_policy" "ecr_user" {
   policy = <<EOF
 {
   "Version": "2012-10-17",
-  "Statement": [{
+  "Statement": [
+    {
     "Effect": "Allow",
     "Action": [
       "ecr:GetAuthorizationToken",
@@ -46,7 +47,17 @@ resource "aws_iam_policy" "ecr_user" {
     "Resource": [
       "arn:aws:ecr:${var.aws["region"]}:101214539433:repository/healthcare/*"
     ]
-    }]
+    },
+    {
+    "Effect": "Allow",
+    "Action": [
+      "ecr:GetAuthorizationToken"
+    ],
+    "Resource": [
+      "*"
+    ]
+    }
+  ]
   }
 EOF
 }
