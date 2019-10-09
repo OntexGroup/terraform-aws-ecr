@@ -45,7 +45,7 @@ resource "aws_iam_policy" "ecr_user" {
       "ecr:PutImage"
     ],
     "Resource": [
-      "arn:aws:ecr:${var.aws["region"]}:101214539433:repository/healthcare/*"
+      "arn:aws:ecr:${var.aws["region"]}:${data.aws_caller_identity.current.account_id}:repository/healthcare/*"
     ]
     },
     {
